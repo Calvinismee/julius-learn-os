@@ -1,0 +1,152 @@
+systemd-+-ModemManager---3*[{ModemManager}]
+        |-NetworkManager---3*[{NetworkManager}]
+        |-accounts-daemon---3*[{accounts-daemon}]
+        |-avahi-daemon---avahi-daemon
+        |-bluetoothd
+        |-boltd---3*[{boltd}]
+        |-brave-browser-s-+-brave-+-brave---brave---23*[{brave}]
+        |                 |       |-brave---brave-+-2*[brave---8*[{brave}]]
+        |                 |       |               |-4*[brave---19*[{brave}]]
+        |                 |       |               |-4*[brave---18*[{brave}]]
+        |                 |       |               |-brave---6*[{brave}]
+        |                 |       |               |-2*[brave---20*[{brave}]]
+        |                 |       |               |-brave---17*[{brave}]
+        |                 |       |               `-brave---22*[{brave}]
+        |                 |       |-brave---17*[{brave}]
+        |                 |       |-brave---8*[{brave}]
+        |                 |       `-35*[{brave}]
+        |                 `-2*[cat]
+        |-bwrap---xdg-dbus-proxy---2*[{xdg-dbus-proxy}]
+        |-chrome_crashpad---2*[{chrome_crashpad}]
+        |-chrome_crashpad---{chrome_crashpad}
+        |-chronyd---chronyd
+        |-containerd---13*[{containerd}]
+        |-cosmic-greeter----12*[{cosmic-greeter-}]
+        |-cosmic-term-+-zsh---pstree
+        |             `-19*[{cosmic-term}]
+        |-cron
+        |-cups-browsed---3*[{cups-browsed}]
+        |-cupsd---dbus
+        |-dbus-broker-lau---dbus-broker
+        |-dnsmasq---dnsmasq
+        |-dnsmasq
+        |-dockerd---16*[{dockerd}]
+        |-gdm3-+-gdm-session-wor-+-gdm-wayland-ses-+-cosmic-session-+-cosmic-app-libr---31*[{cosmic-app-libr}]
+        |      |                 |                 |                |-cosmic-bg---{cosmic-bg}
+        |      |                 |                 |                |-cosmic-comp-+-Xwayland---4*[{Xwayland}]
+        |      |                 |                 |                |             `-22*[{cosmic-comp}]
+        |      |                 |                 |                |-cosmic-files-ap---33*[{cosmic-files-ap}]
+        |      |                 |                 |                |-cosmic-greeter---28*[{cosmic-greeter}]
+        |      |                 |                 |                |-cosmic-idle---4*[{cosmic-idle}]
+        |      |                 |                 |                |-cosmic-launcher-+-pop-launcher-+-cosmic-toplevel---2*[{cosmic+
+        |      |                 |                 |                |                 |              `-{pop-launcher}
+        |      |                 |                 |                |                 `-27*[{cosmic-launcher}]
+        |      |                 |                 |                |-cosmic-notifica---13*[{cosmic-notifica}]
+        |      |                 |                 |                |-cosmic-osd---27*[{cosmic-osd}]
+        |      |                 |                 |                |-cosmic-panel-+-bwrap---bwrap---cosmic-applet-c---15*[{cosmic-+
+        |      |                 |                 |                |              |-cosmic-app-list---15*[{cosmic-app-list}]
+        |      |                 |                 |                |              |-cosmic-applet-a---16*[{cosmic-applet-a}]
+        |      |                 |                 |                |              |-cosmic-applet-a---15*[{cosmic-applet-a}]
+        |      |                 |                 |                |              |-2*[cosmic-applet-b---15*[{cosmic-applet-b}]]
+        |      |                 |                 |                |              |-cosmic-applet-i---15*[{cosmic-applet-i}]
+        |      |                 |                 |                |              |-cosmic-applet-m---15*[{cosmic-applet-m}]
+        |      |                 |                 |                |              |-cosmic-applet-n---16*[{cosmic-applet-n}]
+        |      |                 |                 |                |              |-cosmic-applet-n---15*[{cosmic-applet-n}]
+        |      |                 |                 |                |              |-cosmic-applet-p---15*[{cosmic-applet-p}]
+        |      |                 |                 |                |              |-cosmic-applet-s---15*[{cosmic-applet-s}]
+        |      |                 |                 |                |              |-2*[cosmic-applet-t---15*[{cosmic-applet-t}]]
+        |      |                 |                 |                |              |-5*[cosmic-panel-bu---14*[{cosmic-panel-bu}]]
+        |      |                 |                 |                |              `-24*[{cosmic-panel}]
+        |      |                 |                 |                |-cosmic-settings---6*[{cosmic-settings}]
+        |      |                 |                 |                `-cosmic-workspac---36*[{cosmic-workspac}]
+        |      |                 |                 `-3*[{gdm-wayland-ses}]
+        |      |                 `-3*[{gdm-session-wor}]
+        |      `-3*[{gdm3}]
+        |-gnome-remote-de---3*[{gnome-remote-de}]
+        |-input-remapper--+-input-remapper-
+        |                 `-3*[{input-remapper-}]
+        |-lxc-monitord
+        |-lxcfs---2*[{lxcfs}]
+        |-master-+-pickup
+        |        `-qmgr
+        |-mysqld---36*[{mysqld}]
+        |-networkd-dispat
+        |-obsidian-+-obsidian---obsidian---20*[{obsidian}]
+        |          |-obsidian---obsidian
+        |          |-obsidian---9*[{obsidian}]
+        |          |-obsidian---29*[{obsidian}]
+        |          `-44*[{obsidian}]
+        |-polkitd---3*[{polkitd}]
+        |-pop-system-upda---12*[{pop-system-upda}]
+        |-postgres---5*[postgres]
+        |-python3
+        |-rsyslogd---3*[{rsyslogd}]
+        |-rtkit-daemon---2*[{rtkit-daemon}]
+        |-snapd---15*[{snapd}]
+        |-switcheroo-cont---3*[{switcheroo-cont}]
+        |-system76-power
+        |-system76-schedu---system76-schedu---{system76-schedu}
+        |-systemd-+-(sd-pam)
+        |         |-Discord-+-Discord---Discord---25*[{Discord}]
+        |         |         |-Discord---Discord
+        |         |         |-Discord---15*[{Discord}]
+        |         |         |-Discord---46*[{Discord}]
+        |         |         |-Discord---6*[{Discord}]
+        |         |         `-52*[{Discord}]
+        |         |-agent---3*[{agent}]
+        |         |-applet.py
+        |         |-at-spi-bus-laun-+-dbus-broker-lau---dbus-broker
+        |         |                 `-4*[{at-spi-bus-laun}]
+        |         |-at-spi2-registr---3*[{at-spi2-registr}]
+        |         |-chrome_crashpad---2*[{chrome_crashpad}]
+        |         |-cosmic-applet-s---12*[{cosmic-applet-s}]
+        |         |-dbus-broker-lau---dbus-broker
+        |         |-dconf-service---3*[{dconf-service}]
+        |         |-evolution-addre---6*[{evolution-addre}]
+        |         |-evolution-alarm---7*[{evolution-alarm}]
+        |         |-evolution-calen---9*[{evolution-calen}]
+        |         |-evolution-sourc---4*[{evolution-sourc}]
+        |         |-flatpak-session---3*[{flatpak-session}]
+        |         |-gcr-ssh-agent---2*[{gcr-ssh-agent}]
+        |         |-gnome-keyring-d---4*[{gnome-keyring-d}]
+        |         |-goa-daemon---4*[{goa-daemon}]
+        |         |-goa-identity-se---3*[{goa-identity-se}]
+        |         |-gvfs-afc-volume---4*[{gvfs-afc-volume}]
+        |         |-gvfs-goa-volume---3*[{gvfs-goa-volume}]
+        |         |-gvfs-gphoto2-vo---3*[{gvfs-gphoto2-vo}]
+        |         |-gvfs-mtp-volume---3*[{gvfs-mtp-volume}]
+        |         |-gvfs-udisks2-vo---4*[{gvfs-udisks2-vo}]
+        |         |-gvfsd-+-gvfsd-dnssd---3*[{gvfsd-dnssd}]
+        |         |       |-gvfsd-network---4*[{gvfsd-network}]
+        |         |       |-gvfsd-trash---4*[{gvfsd-trash}]
+        |         |       `-3*[{gvfsd}]
+        |         |-gvfsd-fuse---6*[{gvfsd-fuse}]
+        |         |-p11-kit-server
+        |         |-pipewire---2*[{pipewire}]
+        |         |-pipewire---{pipewire}
+        |         |-pipewire-pulse---2*[{pipewire-pulse}]
+        |         |-pop-system-upda---12*[{pop-system-upda}]
+        |         |-touchegg---4*[{touchegg}]
+        |         |-variety---9*[{variety}]
+        |         |-vktablet---5*[{vktablet}]
+        |         |-wireplumber---5*[{wireplumber}]
+        |         |-xdg-desktop-por---5*[{xdg-desktop-por}]
+        |         |-xdg-desktop-por---4*[{xdg-desktop-por}]
+        |         |-xdg-desktop-por---19*[{xdg-desktop-por}]
+        |         |-xdg-document-po-+-fusermount3
+        |         |                 `-7*[{xdg-document-po}]
+        |         `-xdg-permission----3*[{xdg-permission-}]
+        |-systemd-journal
+        |-systemd-logind
+        |-systemd-machine
+        |-systemd-resolve
+        |-systemd-udevd
+        |-tailscaled---17*[{tailscaled}]
+        |-touchegg---4*[{touchegg}]
+        |-udisksd---5*[{udisksd}]
+        |-upowerd---3*[{upowerd}]
+        |-virtlockd
+        |-virtlogd
+        |-waydroid---{waydroid}
+        |-wpa_supplicant
+        `-zsh---gitstatusd-linu---24*[{gitstatusd-linu}]
