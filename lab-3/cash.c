@@ -34,7 +34,7 @@ int main () {
     char curcwd[90];
     getcwd(curcwd, 90);
     
-    printf("%s $ %s [%s] ", user, hostname, curcwd);
+    printf("%s$%s [%s] > ", user, hostname, curcwd);
     fgets(cmd, sizeof(cmd), stdin);
     // printf("%s", cmd);
     split_words(cmd, args);
