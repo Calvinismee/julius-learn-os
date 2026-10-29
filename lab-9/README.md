@@ -1,48 +1,41 @@
 # MODUL 9 — File dan Direktori; Permission, Link, Stream, dan Pipe
 
-**Praktikum Sistem Operasi**
-Program Studi Ilmu Komputer, FMIPA IPB University
-Tim Asisten Praktikum Sistem Operasi
-
-> Dokumen ini menggabungkan dua berkas modul Pertemuan ke-9: **(I) File dan Direktori** dan **(II) Permission, Link, Stream, dan Pipe**. Penomoran bagian, subbagian, dan tabel diberi awalan **I** atau **II** agar tidak bertabrakan (kedua berkas asli sama-sama memakai nomor 9.x).
-
----
-
 ## Daftar Isi
 
-**Bagian I — File dan Direktori**
-- I.1 Pengantar Praktikum
-- I.2 Materi Inti
-  - I.2.1 Konsep File
-  - I.2.2 Struktur Direktori dan Path
-  - I.2.3 Identifikasi dan Navigasi: `file`, `pwd`, `cd`
-  - I.2.4 Menampilkan Isi Direktori: `ls`
-  - I.2.5 Membuat dan Memperbarui: `touch`, `mkdir`
-  - I.2.6 Menyalin, Memindahkan, dan Menghapus: `cp`, `mv`, `rm`, `rmdir`
-  - I.2.7 Menampilkan Struktur Direktori: `tree`
-  - I.2.8 Dotfile dan Simbol Direktori Khusus
-- I.3 Lembar Kerja Praktikum (LKP) — Bagian I
+**[Bagian I — File dan Direktori](#bagian-1)**
+- [I.1 Pengantar Praktikum](#i-1)
+- [I.2 Materi Inti](#i-2)
+  - [I.2.1 Konsep File](#i-2-1)
+  - [I.2.2 Struktur Direktori dan Path](#i-2-2)
+  - [I.2.3 Identifikasi dan Navigasi: `file`, `pwd`, `cd`](#i-2-3)
+  - [I.2.4 Menampilkan Isi Direktori: `ls`](#i-2-4)
+  - [I.2.5 Membuat dan Memperbarui: `touch`, `mkdir`](#i-2-5)
+  - [I.2.6 Menyalin, Memindahkan, dan Menghapus: `cp`, `mv`, `rm`, `rmdir`](#i-2-6)
+  - [I.2.7 Menampilkan Struktur Direktori: `tree`](#i-2-7)
+  - [I.2.8 Dotfile dan Simbol Direktori Khusus](#i-2-8)
+- [I.3 Lembar Kerja Praktikum (LKP) — Bagian I](#i-3)
 
-**Bagian II — Permission, Link, Stream, dan Pipe**
-- II.1 Pengantar Praktikum
-- II.2 Materi Inti
-  - II.2.1 Kepemilikan dan Notasi Hak Akses Berkas
-  - II.2.2 Perintah `chown` dan `chmod`
-  - II.2.3 Contoh Penerapan `chmod`
-  - II.2.4 Pengayaan: Bit Setuid dan Sticky Bit
-  - II.2.5 Hard Link dan Symbolic Link
-  - II.2.6 Inode: Struktur Data di Balik Sebuah Berkas
-  - II.2.7 Stream Standar Proses
-  - II.2.8 Pipe: Komunikasi Antarproses
-  - II.2.9 Redirection I/O
-- II.3 Praktik: Permission, Link, dan Pipe pada Terminal
-- II.4 Latihan
-- II.5 Lembar Kerja Praktikum (LKP) — Bagian II
+**[Bagian II — Permission, Link, Stream, dan Pipe](#bagian-2)**
+- [II.1 Pengantar Praktikum](#ii-1)
+- [II.2 Materi Inti](#ii-2)
+  - [II.2.1 Kepemilikan dan Notasi Hak Akses Berkas](#ii-2-1)
+  - [II.2.2 Perintah `chown` dan `chmod`](#ii-2-2)
+  - [II.2.3 Contoh Penerapan `chmod`](#ii-2-3)
+  - [II.2.4 Pengayaan: Bit Setuid dan Sticky Bit](#ii-2-4)
+  - [II.2.5 Hard Link dan Symbolic Link](#ii-2-5)
+  - [II.2.6 Inode: Struktur Data di Balik Sebuah Berkas](#ii-2-6)
+  - [II.2.7 Stream Standar Proses](#ii-2-7)
+  - [II.2.8 Pipe: Komunikasi Antarproses](#ii-2-8)
+  - [II.2.9 Redirection I/O](#ii-2-9)
+- [II.3 Praktik: Permission, Link, dan Pipe pada Terminal](#ii-3)
+- [II.4 Latihan](#ii-4)
+- [II.5 Lembar Kerja Praktikum (LKP) — Bagian II](#ii-5)
 
-**Referensi**
+**[Referensi](#referensi)**
 
 ---
----
+
+<a id="bagian-1"></a>
 
 # BAGIAN I — FILE DAN DIREKTORI
 
@@ -54,6 +47,8 @@ Tim Asisten Praktikum Sistem Operasi
 > 2. Membedakan *path absolute* dan *relative*, serta memahami makna simbol direktori khusus `~`, `.`, `..`, dan `/`.
 > 3. Menerapkan perintah dasar *shell* untuk mengelola *file* dan direktori: `pwd`, `cd`, `ls`, `touch`, `mkdir`, `cp`, `mv`, `rm`, `rmdir`, dan `tree`.
 
+<a id="i-1"></a>
+
 ## I.1 Pengantar Praktikum
 
 Modul ini melanjutkan Modul 8 (Pengenalan *Command Line Interface*) dengan berfokus pada bagaimana pengguna berinteraksi dengan *file* dan direktori melalui *shell*. Hampir seluruh aktivitas pada sistem operasi—menjalankan program, menyimpan data, mengonfigurasi aplikasi—pada akhirnya melibatkan operasi terhadap *file* dan direktori. Oleh karena itu, penguasaan perintah dasar manajemen *file* menjadi keterampilan fundamental sebelum mempelajari topik lanjutan seperti hak akses (*permission*), *pipe*, dan pemrosesan teks pada modul-modul berikutnya.
@@ -64,7 +59,11 @@ Pada praktikum ini, mahasiswa akan mempelajari konsep *file* dan direktori secar
 >
 > Buku acuan utama praktikum ini adalah Silberschatz, Galvin, dan Gagne, *Operating System Concepts*, edisi ke-10 (2018), khususnya Bab 11 (*File-System Interface*). Slide kuliah pada topik ini hanya memuat sintaks perintah secara ringkas tanpa nomor halaman kutipan tertentu; penjelasan konsep *file*, direktori, dan *path* pada modul ini dilengkapi dari buku tersebut agar dapat dipelajari secara mandiri.
 
+<a id="i-2"></a>
+
 ## I.2 Materi Inti
+
+<a id="i-2-1"></a>
 
 ### I.2.1 Konsep File
 
@@ -84,6 +83,8 @@ Sistem operasi menyediakan sejumlah operasi dasar terhadap *file*, yaitu *create
 
 ¹ Silberschatz *et al.* (2018), *Operating System Concepts*, Bab 11 (*File-System Interface*).
 
+<a id="i-2-2"></a>
+
 ### I.2.2 Struktur Direktori dan Path
 
 Direktori (*directory*) adalah *file* khusus yang berfungsi sebagai wadah untuk mengelompokkan dan mengatur *file-file* lain, serta memetakan nama *file* ke informasi lokasinya. Hampir seluruh sistem operasi modern, termasuk Linux, menggunakan struktur direktori bertingkat (*tree-structured directory*): terdapat satu direktori *root* sebagai akar pohon, dan setiap direktori dapat memiliki sejumlah subdirektori serta *file* di dalamnya, membentuk hierarki menyerupai pohon terbalik. Struktur ini memungkinkan pengguna mengelompokkan *file* yang berkaitan ke dalam direktori yang sama, serta memisahkan *file* milik pengguna yang berbeda ke dalam direktori *home* masing-masing.
@@ -94,6 +95,8 @@ Untuk merujuk ke sebuah *file* atau direktori di dalam hierarki tersebut, diguna
 - **Relative path**: dituliskan relatif terhadap direktori kerja saat ini (*current working directory*), sehingga hasilnya bergantung pada posisi pengguna saat perintah dijalankan. Contoh: `../etc`.
 
 Setiap proses pada sistem operasi memiliki satu direktori kerja saat ini yang menjadi acuan bagi *relative path*; direktori ini dapat dilihat dengan perintah `pwd` dan diubah dengan perintah `cd`, sebagaimana akan dibahas pada Subbagian I.2.3.
+
+<a id="i-2-3"></a>
 
 ### I.2.3 Identifikasi dan Navigasi: `file`, `pwd`, `cd`
 
@@ -117,6 +120,8 @@ Perintah `cd` (*change directory*) mengganti direktori kerja saat ini. Jika dija
 cd [DIR]
 ```
 
+<a id="i-2-4"></a>
+
 ### I.2.4 Menampilkan Isi Direktori: `ls`
 
 Perintah `ls` menampilkan daftar isi suatu direktori (atau informasi suatu *file*). Tanpa argumen, `ls` menampilkan isi direktori kerja saat ini.
@@ -138,6 +143,8 @@ Beberapa opsi `ls` yang sering dipakai dirangkum pada Tabel I.1.
 
 Opsi-opsi ini dapat digabungkan, misalnya `ls -lah` untuk menampilkan seluruh *file* (termasuk *dotfile*) dalam format panjang dengan ukuran *human-readable*.
 
+<a id="i-2-5"></a>
+
 ### I.2.5 Membuat dan Memperbarui: `touch`, `mkdir`
 
 Perintah `touch` meng-*update* waktu akses dan modifikasi suatu *file*. Jika *file* yang dirujuk belum ada, `touch` akan membuat *file* kosong dengan nama tersebut—inilah sebabnya `touch` sering dipakai sekadar untuk membuat *file* kosong.
@@ -153,6 +160,8 @@ mkdir [OPTION] DIR
 ```
 
 Opsi `-p` (*parent*) membuat seluruh direktori *parent* yang diperlukan sekaligus jika belum ada, sehingga `mkdir -p a/b/c` akan membuat direktori `a`, `a/b`, dan `a/b/c` dalam satu perintah meskipun `a` dan `a/b` sebelumnya belum ada.
+
+<a id="i-2-6"></a>
 
 ### I.2.6 Menyalin, Memindahkan, dan Menghapus: `cp`, `mv`, `rm`, `rmdir`
 
@@ -194,6 +203,8 @@ Opsi `-p` menghapus direktori beserta direktori *parent*-nya secara berurutan, s
 
 Perbedaan mendasar antara `rm -r` dan `rmdir` terletak pada syarat isi direktori: `rmdir` dirancang sebagai pengaman agar direktori yang masih berisi data tidak terhapus secara tidak sengaja, sedangkan `rm -r` akan menghapus direktori beserta seluruh isinya tanpa mempedulikan apakah direktori tersebut kosong atau tidak. Karena sifatnya yang destruktif dan sulit dibatalkan, `rm -r` (apalagi jika dikombinasikan dengan `-f`) harus digunakan dengan sangat hati-hati.
 
+<a id="i-2-7"></a>
+
 ### I.2.7 Menampilkan Struktur Direktori: `tree`
 
 Perintah `tree` menampilkan isi direktori dalam format pohon (*tree*) yang secara visual merepresentasikan hierarki direktori sebagaimana dijelaskan pada Subbagian I.2.2.
@@ -203,6 +214,8 @@ tree [OPTION] [DIR...]
 ```
 
 Opsi `-L N` membatasi kedalaman level direktori yang ditampilkan hingga level ke-`N`, sedangkan `-h` menampilkan ukuran *file* dalam format *human-readable*, serupa dengan opsi `-h` pada `ls`.
+
+<a id="i-2-8"></a>
 
 ### I.2.8 Dotfile dan Simbol Direktori Khusus
 
@@ -239,6 +252,8 @@ Tabel I.3 merangkum seluruh perintah dasar yang dibahas pada Bagian I ini besert
 | `rmdir` | `rmdir [OPTION] DIR...` | Menghapus direktori kosong. |
 | `tree` | `tree [OPTION] [DIR...]` | Menampilkan isi direktori dalam format pohon. |
 
+<a id="i-3"></a>
+
 ## I.3 Lembar Kerja Praktikum (LKP) — Bagian I
 
 > **Instruksi Tugas**
@@ -265,6 +280,8 @@ Tabel I.3 merangkum seluruh perintah dasar yang dibahas pada Bagian I ini besert
 ---
 ---
 
+<a id="bagian-2"></a>
+
 # BAGIAN II — PERMISSION, LINK, STREAM, DAN PIPE
 
 *Pertemuan ke-9: Permission & Pipe*
@@ -274,6 +291,8 @@ Tabel I.3 merangkum seluruh perintah dasar yang dibahas pada Bagian I ini besert
 > 1. Memahami konsep kepemilikan (*ownership*) dan hak akses (*permission*) berkas pada sistem UNIX/Linux, serta cara membaca dan mengubahnya menggunakan `chmod` dan `chown`.
 > 2. Memahami perbedaan *hard link* dan *symbolic link*, serta peran *inode* sebagai struktur data yang menyimpan metadata suatu berkas.
 > 3. Menerapkan konsep *stream* standar (`stdin`, `stdout`, `stderr`), *pipe*, dan *redirection* I/O untuk menyusun *pipeline* perintah pada *shell*.
+
+<a id="ii-1"></a>
 
 ## II.1 Pengantar Praktikum
 
@@ -285,7 +304,11 @@ Materi dibagi menjadi tiga bagian besar. Bagian pertama membahas kepemilikan dan
 >
 > Buku acuan utama praktikum ini adalah Silberschatz, Galvin, dan Gagne, *Operating System Concepts*, edisi ke-10 (2018) — khususnya bab yang membahas antarmuka sistem berkas (*file-system interface*), proteksi berkas, implementasi sistem berkas, dan komunikasi antarproses (*interprocess communication*).
 
+<a id="ii-2"></a>
+
 ## II.2 Materi Inti
+
+<a id="ii-2-1"></a>
 
 ### II.2.1 Kepemilikan dan Notasi Hak Akses Berkas
 
@@ -310,6 +333,8 @@ Terhadap masing-masing kelas pengguna tersebut, sistem UNIX/Linux mendefinisikan
 | `x` | *execute* | Menjalankan berkas sebagai program/skrip. | Masuk ke dalam direktori (*enter the directory*), misalnya dengan `cd`. |
 
 Kombinasi tiga kelas pengguna dan tiga jenis *permission* inilah yang membentuk sembilan bit hak akses yang tampil pada kolom *permission* keluaran `ls -l`, misalnya `rwxr-xr-x`: tiga karakter pertama untuk *owner*, tiga berikutnya untuk *group*, dan tiga terakhir untuk *others*.
+
+<a id="ii-2-2"></a>
 
 ### II.2.2 Perintah `chown` dan `chmod`
 
@@ -356,6 +381,8 @@ Format oktal merepresentasikan *permission* tiap kelas pengguna sebagai satu dig
 
 Sebagai contoh, *permission* `rwxr-xr-x` dapat ditulis sebagai digit oktal `7` (owner: 4+2+1), `5` (group: 4+0+1), dan `5` (others: 4+0+1), sehingga menjadi `755`.
 
+<a id="ii-2-3"></a>
+
 ### II.2.3 Contoh Penerapan `chmod`
 
 Tabel II.4 menunjukkan beberapa contoh *permission* yang umum dijumpai beserta cara menyetelnya menggunakan format oktal maupun format simbolis.
@@ -368,6 +395,8 @@ Tabel II.4 menunjukkan beberapa contoh *permission* yang umum dijumpai beserta c
 | `rw-rw----` | `chmod 660 FILE` | `chmod ug=rw,o= FILE` |
 | `rwxr-xr-x` | `chmod 755 FILE` | `chmod u=rwx,go=rx FILE` |
 
+<a id="ii-2-4"></a>
+
 ### II.2.4 Pengayaan: Bit Setuid dan Sticky Bit
 
 Selain sembilan bit dasar (`rwx` untuk `u`, `g`, `o`), sistem UNIX/Linux juga mengenal beberapa bit *permission* khusus yang tidak muncul secara eksplisit pada slide utama, namun penting untuk dipahami:
@@ -377,6 +406,8 @@ Selain sembilan bit dasar (`rwx` untuk `u`, `g`, `o`), sistem UNIX/Linux juga me
 - **Sticky bit**: jika aktif pada sebuah direktori (misalnya direktori `/tmp`), pengguna hanya dapat menghapus atau mengubah nama berkas miliknya sendiri di dalam direktori tersebut, walaupun pengguna lain memiliki *permission write* pada direktori itu.
 
 Ketiga bit ini turut disetel melalui `chmod`, baik dengan digit oktal keempat (*setuid*=4, *setgid*=2, *sticky*=1, dituliskan di depan tiga digit biasa) maupun format simbolis (`u+s`, `g+s`, `+t`).
+
+<a id="ii-2-5"></a>
 
 ### II.2.5 Hard Link dan Symbolic Link
 
@@ -393,11 +424,15 @@ ln [OPTION] TARGET LINK-NAME
 
 Tanpa opsi, `ln` membuat *hard link*. Opsi `-s` membuat *symbolic link*.
 
+<a id="ii-2-6"></a>
+
 ### II.2.6 Inode: Struktur Data di Balik Sebuah Berkas
 
 Setiap berkas pada sistem berkas bergaya UNIX (misalnya `ext2`, `ext3`, `ext4`) direpresentasikan oleh sebuah struktur data yang disebut *inode* (*index node*). *Inode* menyimpan seluruh **metadata** berkas — seperti pemilik, *group*, *permission*, ukuran, waktu modifikasi terakhir, dan lokasi blok data pada *disk* — namun **tidak menyimpan nama berkas itu sendiri**. Nama berkas justru disimpan sebagai pasangan (nama, nomor *inode*) di dalam *entry* direktori tempat berkas tersebut berada.
 
 Seluruh *inode* pada suatu sistem berkas disimpan dalam sebuah tabel/*array inode* berukuran tetap yang dialokasikan saat sistem berkas dibuat (*format*). Karena jumlah slot *inode* ini dibatasi sejak awal, sebuah *disk* yang secara kapasitas byte masih memiliki ruang kosong dapat tetap kehabisan *inode* apabila berisi sangat banyak berkas berukuran kecil — kondisi ini dapat dicek dengan perintah `df -i`. Inilah alasan mengapa penghapusan nama (*unlink*) sebuah *hard link* tidak langsung menghapus data: data dan *inode*-nya baru benar-benar dibebaskan ketika **jumlah *hard link* yang menunjuk ke *inode* tersebut mencapai nol**.
+
+<a id="ii-2-7"></a>
 
 ### II.2.7 Stream Standar Proses
 
@@ -418,6 +453,8 @@ stdin --->|    PROSES    |---> stdout
 ```
 
 Pemisahan `stdout` dan `stderr` menjadi dua *stream* yang berbeda inilah yang memungkinkan pengguna mengarahkan keduanya secara terpisah — misalnya menyimpan keluaran normal ke satu berkas dan pesan galat ke berkas lain — sebagaimana dibahas pada Subbagian II.2.9.
+
+<a id="ii-2-8"></a>
 
 ### II.2.8 Pipe: Komunikasi Antarproses
 
@@ -458,6 +495,8 @@ Karena kedua ujung *pipe* berupa *file descriptor* biasa, proses *child* hasil `
 
 Karena kapasitas *buffer pipe* pada *kernel* terbatas, proses penulis yang mengisi *buffer* hingga penuh akan diblokir (menunggu) sampai proses pembaca mengosongkan sebagian isinya. Sebaliknya, jika proses pembaca (`cmd2`) berhenti sebelum proses penulis (`cmd1`) selesai menulis, sistem operasi akan mengirim sinyal `SIGPIPE` ke proses penulis, yang secara *default* akan menghentikan proses tersebut.
 
+<a id="ii-2-9"></a>
+
 ### II.2.9 Redirection I/O
 
 *Redirection* mengarahkan salah satu *stream* standar suatu proses ke sebuah berkas yang ditentukan pengguna, alih-alih ke papan ketik/layar secara *default*. Tabel II.5 merangkum karakter *redirect* yang umum dipakai pada *shell* `bash`.
@@ -482,6 +521,8 @@ rev < now.txt > rev.txt
 Baris pertama menuliskan keluaran normal `date` ke `now.txt` dan pesan galatnya (jika ada) ke `err.txt`. Baris kedua membaca isi `now.txt` sebagai masukan `rev` dan menampilkan hasilnya ke layar. Baris ketiga menggabungkan *redirect* masukan dan keluaran sekaligus: isi `now.txt` dibalik oleh `rev`, lalu hasilnya disimpan ke `rev.txt`.
 
 *Redirect* dan *pipe* sama-sama memanipulasi *stream* standar suatu proses, namun berbeda tujuan: *redirect* menghubungkan *stream* proses dengan sebuah **berkas**, sedangkan *pipe* menghubungkan *stream* satu proses langsung dengan *stream* **proses lain** tanpa melalui berkas perantara di *disk*.
+
+<a id="ii-3"></a>
 
 ## II.3 Praktik: Permission, Link, dan Pipe pada Terminal
 
@@ -560,9 +601,13 @@ Baris pertama menuliskan keluaran normal `date` ke `now.txt` dan pesan galatnya 
 >
 > Simpan tangkapan layar hasil eksekusi seluruh perintah pada langkah ini.
 
+<a id="ii-4"></a>
+
 ## II.4 Latihan
 
 Kerjakan latihan *permission* pada tautan berikut sebagaimana dirujuk pada slide kuliah, lalu lampirkan tangkapan layar dan jawabannya: Launch School — *Intro Command Line*, <https://launchschool.com/books/command_line/read/permissions#exercises>.
+
+<a id="ii-5"></a>
 
 ## II.5 Lembar Kerja Praktikum (LKP) — Bagian II
 
@@ -581,6 +626,8 @@ Kerjakan latihan *permission* pada tautan berikut sebagaimana dirujuk pada slide
 2. Buat satu *pipeline* tiga perintah (`cmd1 | cmd2 | cmd3`) bebas menggunakan perintah-perintah UNIX/Linux yang tersedia (contoh: `cat data_b.txt | sort | uniq`), lalu arahkan hasil akhirnya ke sebuah berkas menggunakan *redirect* `>`. Tunjukkan bahwa isi berkas hasil sesuai dengan yang diharapkan.
 
 ---
+
+<a id="referensi"></a>
 
 ## Referensi
 
